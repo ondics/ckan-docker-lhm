@@ -434,7 +434,7 @@ html {
 }
 .actions {
 	z-index:auto;
-	overflow:hidden;
+	/* overflow:hidden; */
 }
 
 

@@ -148,30 +148,46 @@ RUN set -ex && \
   git+${CKANEXT_PAGES_GITHUB_URL}.git@${CKANEXT_PAGES_TAG}#egg=ckanext-pages
 
 # ckanext-dcat ################################################################
-ARG CKANEXT_DCAT_VERSION="v1.6.0"
+ARG CKANEXT_DCAT_VERSION="v2.3.0"
 ENV CKANEXT_DCAT_VERSION=${CKANEXT_DCAT_VERSION}
 ENV CKANEXT_DCAT_GITHUB_URL="https://github.com/ckan/ckanext-dcat"
 
-RUN set -ex && \
-  pip install -r \
-    https://raw.githubusercontent.com/ckan/ckanext-dcat/${CKANEXT_DCAT_VERSION}/dev-requirements.txt && \
-  curl -o /wheels/ckanext-dcat.txt \
-    https://raw.githubusercontent.com/ckan/ckanext-dcat/${CKANEXT_DCAT_VERSION}/requirements.txt && \
-  pip wheel --wheel-dir=/wheels \
-    git+${CKANEXT_DCAT_GITHUB_URL}.git@${CKANEXT_DCAT_VERSION}#egg=ckanext-dcat
+RUN set -ex \
+  && pip install --upgrade pip setuptools wheel \
+  && pip install --upgrade --ignore-installed "packaging>=23.0" \
+  && mkdir -p /wheels \
+  && pip wheel --wheel-dir=/wheels \
+       --extra-index-url=https://pypi.org/simple \
+       -r https://raw.githubusercontent.com/ckan/ckanext-dcat/${CKANEXT_DCAT_VERSION}/dev-requirements.txt \
+  && pip wheel --wheel-dir=/wheels \
+       --extra-index-url=https://pypi.org/simple \
+       -r https://raw.githubusercontent.com/ckan/ckanext-dcat/${CKANEXT_DCAT_VERSION}/requirements.txt \
+  && curl -o /wheels/ckanext-dcat.txt \
+       https://raw.githubusercontent.com/ckan/ckanext-dcat/${CKANEXT_DCAT_VERSION}/requirements.txt \
+  && pip wheel --wheel-dir=/wheels \
+       --extra-index-url=https://pypi.org/simple \
+       git+${CKANEXT_DCAT_GITHUB_URL}.git@${CKANEXT_DCAT_VERSION}#egg=ckanext-dcat
 
 # ckanext-dcatde ################################################################
-ARG CKANEXT_DCATDE_VERSION="6.7.0"
+ARG CKANEXT_DCATDE_VERSION="6.9.0"
 ENV CKANEXT_DCATDE_VERSION=${CKANEXT_DCATDE_VERSION}
 ENV CKANEXT_DCATDE_GITHUB_URL="https://github.com/GovDataOfficial/ckanext-dcatde"
 
-RUN set -ex && \
-  pip install -r \
-    https://raw.githubusercontent.com/GovDataOfficial/ckanext-dcatde/${CKANEXT_DCATDE_VERSION}/dev-requirements.txt && \
-  curl -o /wheels/ckanext-dcatde.txt \
-    https://raw.githubusercontent.com/GovDataOfficial/ckanext-dcatde/${CKANEXT_DCATDE_VERSION}/base-requirements.txt && \
-  pip wheel --no-deps --wheel-dir=/wheels \
-    git+${CKANEXT_DCATDE_GITHUB_URL}.git@${CKANEXT_DCATDE_VERSION}#egg=ckanext-dcatde
+RUN set -ex \
+  && pip install --upgrade pip setuptools wheel \
+  && pip install --upgrade --ignore-installed "packaging>=23.0" \
+  && mkdir -p /wheels \
+  && pip wheel --wheel-dir=/wheels \
+       --extra-index-url=https://pypi.org/simple \
+       -r https://raw.githubusercontent.com/GovDataOfficial/ckanext-dcatde/${CKANEXT_DCATDE_VERSION}/dev-requirements.txt \
+  && pip wheel --wheel-dir=/wheels \
+       --extra-index-url=https://pypi.org/simple \
+       -r https://raw.githubusercontent.com/GovDataOfficial/ckanext-dcatde/${CKANEXT_DCATDE_VERSION}/base-requirements.txt \
+  && curl -o /wheels/ckanext-dcatde.txt \
+       https://raw.githubusercontent.com/GovDataOfficial/ckanext-dcatde/${CKANEXT_DCATDE_VERSION}/base-requirements.txt \
+  && pip wheel --wheel-dir=/wheels \
+       --extra-index-url=https://pypi.org/simple \
+       git+${CKANEXT_DCATDE_GITHUB_URL}.git@${CKANEXT_DCATDE_VERSION}#egg=ckanext-dcatde
 
 # ckanext-xloader ##########################################################
 ARG CKANEXT_XLOADER_VERSION="1.0.1"
@@ -228,6 +244,41 @@ RUN set -ex && \
   pip wheel --wheel-dir=/wheels \
     git+https://github.com/MarijaKnezevic/ckanext-spatial.git@${CKANEXT_SPATIAL_VERSION}#egg=ckanext-spatial
 
+## ckanext-keycloak ##########################################################
+ARG CKANEXT_KEYCLOAK_VERSION="f8646f8"
+ENV CKANEXT_KEYCLOAK_VERSION=${CKANEXT_KEYCLOAK_VERSION}
+ENV CKANEXT_KEYCLOAK_GITHUB_URL="https://github.com/gislab-augsburg/ckanext-keycloak"
+
+RUN set -ex && \
+  pip install -r \
+    https://raw.githubusercontent.com/gislab-augsburg/ckanext-keycloak/${CKANEXT_KEYCLOAK_VERSION}/requirements.txt && \
+  curl -o /wheels/ckanext-keycloak.txt \
+    https://raw.githubusercontent.com/gislab-augsburg/ckanext-keycloak/${CKANEXT_KEYCLOAK_VERSION}/requirements.txt && \
+  pip wheel --wheel-dir=/wheels \
+    git+${CKANEXT_KEYCLOAK_GITHUB_URL}.git@${CKANEXT_KEYCLOAK_VERSION}#egg=ckanext-keycloak
+
+# ckanext-noanonaccess ##########################################################
+ARG CKANEXT_NOANONACCESS_VERSION="5b88a0f"
+ENV CKANEXT_NOANONACCESS_VERSION=${CKANEXT_NOANONACCESS_VERSION}
+ENV CKANEXT_NOANONACCESS_GITHUB_URL="https://github.com/gislab-augsburg/ckanext-noanonaccess"
+
+RUN set -ex && \
+  pip wheel --wheel-dir=/wheels \
+    git+${CKANEXT_NOANONACCESS_GITHUB_URL}.git@${CKANEXT_NOANONACCESS_VERSION}#egg=ckanext-noanonaccess
+
+# ckanext-clamav ##############################################################
+ARG CKANEXT_CALMAV_VERSION="c483b5d"
+ENV CKANEXT_CALMAV_VERSION=${CKANEXT_CALMAV_VERSION}
+ENV CKANEXT_CALMAV_GITHUB_URL="https://github.com/gislab-augsburg/ckanext-clamav"
+
+RUN set -ex && \
+  pip wheel --wheel-dir=/wheels -r \
+    https://raw.githubusercontent.com/mutantsan/ckanext-clamav/${CKANEXT_CALMAV_VERSION}/requirements.txt && \
+  curl -o /wheels/ckanext-clamav.txt \
+    https://raw.githubusercontent.com/mutantsan/ckanext-clamav/${CKANEXT_CALMAV_VERSION}/requirements.txt && \
+  pip wheel --wheel-dir=/wheels \
+    git+${CKANEXT_CALMAV_GITHUB_URL}.git@${CKANEXT_CALMAV_VERSION}#egg=ckanext-clamav
+    
 ###############################################################################
 # Runtime stage
 ###############################################################################
@@ -237,7 +288,7 @@ ENV CKAN__PLUGINS "image_view text_view recline_view recline_map_view recline_gr
   webpage_view openapi_view datastore xloader ogdmunich pages showcase resource_proxy geo_view geojson_view wmts_view shp_view \
   harvest ckan_harvester csw_harvester dcat dcatde \
   dcat_rdf_harvester dcat_json_harvester dcat_json_interface structured_data \
-  spatial_metadata spatial_query scheming_datasets envvars"
+  spatial_metadata spatial_query scheming_datasets keycloak noanonaccess clamav envvars"
 
 # Extra env for compatibility with ckan/base Docker images for downstream k8s
 ENV CKAN_INI=${APP_DIR}/production.ini
@@ -353,6 +404,22 @@ RUN set -ex && \
 # Copy additional files
 COPY --chown=ckan:ckan who.ini ${APP_DIR}/who.ini
 
+## ckanext-keycloak #################################################################
+RUN set -ex && \
+  pip install -r ${APP_DIR}/ext_wheels/ckanext-keycloak.txt && \
+  pip install --no-index --find-links=${APP_DIR}/ext_wheels ckanext-keycloak
+
+# ckanext-noanonaccess #############################################################
+RUN set -ex && \
+  pip install --no-index --find-links=${APP_DIR}/ext_wheels ckanext-noanonaccess
+
+# ckanext-clamav ##############################################################
+# uninstall previous version from sddi-base
+RUN yes | pip uninstall ckanext-clamav
+RUN set -ex && \
+  pip install -r ${APP_DIR}/ext_wheels/ckanext-clamav.txt && \
+  pip install --no-index --find-links=${APP_DIR}/ext_wheels ckanext-clamav
+
 # install supervisor ########################################################
 RUN set -ex && \
   apt-get update && \
@@ -376,7 +443,7 @@ RUN set -ex && \
   ckan config-tool "${CKAN_INI}" "ckanext.pages.about_menu = false" && \
   ckan config-tool "${CKAN_INI}" "ckanext.pages.allow_html = true" && \
   ckan config-tool "${CKAN_INI}" "ckanext.pages.editor = ckeditor" && \
-  ckan config-tool "${CKAN_INI}" "ckanext.dcat.rdf.profiles = euro_dcat_ap_2 dcatap_de" && \
+  ckan config-tool "${CKAN_INI}" "ckanext.dcat.rdf.profiles = dcatap_de" && \
   ckan config-tool "${CKAN_INI}" "ckan.harvest.mq.type = redis" && \
   ckan config-tool "${CKAN_INI}" "ckan.harvest.mq.hostname = 127.0.0.1" && \
   ckan config-tool "${CKAN_INI}" "ckan.harvest.mq.port=6379" && \
@@ -400,5 +467,8 @@ RUN set -ex && \
   chown -R ckan:ckan ${APP_DIR} ${CKAN_STORAGE_PATH} && \
   # Remove wheels
   rm -rf ${APP_DIR}/ext_wheels
+# Set timezone
+ENV TZ="Europe/Berlin"
+RUN echo "${TZ}" > /etc/timezone
 
 USER ckan
