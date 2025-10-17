@@ -1,0 +1,14 @@
+{% ckan_extends %}
+
+{%- block resource_format -%}
+<tr>
+  <th scope="row">{{ _('Format') }}</th>
+  <td>{{ res.format or res.mimetype_inner or res.mimetype or _('unknown') }}</td>
+</tr>
+{% if h.ogdmunich_get_dcat_format(res.format) %}
+<tr>
+  <th scope="row">{{ _('Format') }} (DCAT)</th>
+  <td><a href="{{ h.ogdmunich_get_dcat_format(res.format) }}" target="_blank">{{ h.ogdmunich_get_dcat_format(res.format) }}</a></td>
+</tr>
+{% endif %}
+{%- endblock -%}

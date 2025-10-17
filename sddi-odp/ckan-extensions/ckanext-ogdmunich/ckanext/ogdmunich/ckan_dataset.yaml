@@ -64,6 +64,7 @@ dataset_fields:
   form_placeholder: https://musterdatenkatalog.de/def/musterdatensatz/bevoelkerungsstruktur/einwohnerzahl
   help_text: Musterdatensatz aus <a href="https://bertelsmannstift.github.io/Musterdatenkatalog/def/musterdatensatz.html" target="_blank">Musterdatenkatalog</a>
   help_allow_html: true
+  display_snippet: references.html
   validators: url_validator ogdmunich_is_musterdatensatz
 
 - field_name: hvd_category

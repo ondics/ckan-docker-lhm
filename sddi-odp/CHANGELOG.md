@@ -1,6 +1,17 @@
 CHANGELOG
 =========
 
+17.10.2025:
+
+* ENH: in Zusätzliche Informationen bei Ressourcen neuer Tabelleneintrag "Format (DCAT)" und Tabellenzeile Format
+* ENH: Mapping Datei von CKAN nach DCAT konformen Feldern für Ressourcen format und mediaType
+* ENH: dcat Profile Anpassungen für govdata konforme dct:format und dcat:mediaType
+* ENH: Erweiterung DCATdeProfile durch eigenes Profil OGDMunichDCATProfile
+
+16.10.2025:
+
+* ENH: Verlinkung Musterdatenkatalog
+
 06.06.2024:
 
 * FIX: Base Image für Dockerfile.debug aktualisiert

@@ -24,8 +24,9 @@ setup(
     ],
     entry_points='''
         [ckan.plugins]
-	ogdmunich=ckanext.ogdmunich.plugin:OGDMunichThemePlugin
-        # Add plugins here, e.g.
-        # myplugin=ckanext.ogdmunich.plugin:PluginClass
+	    ogdmunich=ckanext.ogdmunich.plugin:OGDMunichThemePlugin
+
+        [ckan.rdf.profiles]
+        ogdmunich_dcat=ckanext.ogdmunich.profiles:OGDMunichDCATProfile
     ''',
 )

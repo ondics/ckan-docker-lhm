@@ -1,0 +1,122 @@
+{
+    "CSV": {
+        "name": "CSV",
+        "format": "http://publications.europa.eu/resource/authority/file-type/CSV",
+        "media_type": "https://www.iana.org/assignments/media-types/text/csv"
+    },
+    "GEOJSON": {
+        "name": "GEOJSON",
+        "format": "http://publications.europa.eu/resource/authority/file-type/GEOJSON",
+        "media_type": "https://www.iana.org/assignments/media-types/application/geo+json"
+    },
+    "GZ": {
+        "name": "GZ",
+        "format": "http://publications.europa.eu/resource/authority/file-type/GZIP",
+        "media_type": "https://www.iana.org/assignments/media-types/application/gzip"
+    },
+    "HTML": {
+        "name": "HTML",
+        "format": "http://publications.europa.eu/resource/authority/file-type/HTML",
+        "media_type": "https://www.iana.org/assignments/media-types/text/html"
+    },
+    "JS": {
+        "name": "JS",
+        "format": "http://publications.europa.eu/resource/authority/file-type/JS",
+        "media_type": "https://www.iana.org/assignments/media-types/text/javascript"
+    },
+    "JSON": {
+        "name": "JSON",
+        "format": "http://publications.europa.eu/resource/authority/file-type/JSON",
+        "media_type": "https://www.iana.org/assignments/media-types/application/json"
+    },
+    "KML": {
+        "name": "KML",
+        "format": "http://publications.europa.eu/resource/authority/file-type/KML",
+        "media_type": "https://www.iana.org/assignments/media-types/application/vnd.google-earth.kml+xml"
+    },
+    "KMZ": {
+        "name": "KMZ",
+        "format": "http://publications.europa.eu/resource/authority/file-type/KMZ",
+        "media_type": "https://www.iana.org/assignments/media-types/application/vnd.google-earth.kmz"
+    },
+    "PDF": {
+        "name": "PDF",
+        "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+        "media_type": "https://www.iana.org/assignments/media-types/application/pdf"
+    },
+    "PNG": {
+        "name": "PNG",
+        "format": "http://publications.europa.eu/resource/authority/file-type/PNG",
+        "media_type": "https://www.iana.org/assignments/media-types/image/png"
+    },
+    "RAR": {
+        "name": "RAR",
+        "format": "http://publications.europa.eu/resource/authority/file-type/RAR",
+        "media_type": "https://www.iana.org/assignments/media-types/application/vnd.rar"
+    },
+    "RDF": {
+        "name": "RDF",
+        "format": "http://publications.europa.eu/resource/authority/file-type/RDF",
+        "media_type": "https://www.iana.org/assignments/media-types/application/rdf+xml"
+    },
+    "SHP": {
+        "name": "SHP",
+        "format": "http://publications.europa.eu/resource/authority/file-type/SHP",
+        "media_type": "https://www.iana.org/assignments/media-types/application/vnd.shp"
+    },
+    "SHAPE": {
+        "name": "SHP",
+        "format": "http://publications.europa.eu/resource/authority/file-type/SHP",
+        "media_type": "https://www.iana.org/assignments/media-types/application/vnd.shp"
+    },
+    "SVG": {
+        "name": "SVG",
+        "format": "http://publications.europa.eu/resource/authority/file-type/SVG",
+        "media_type": "https://www.iana.org/assignments/media-types/image/svg+xml"
+    },
+    "TSV": {
+        "name": "TSV",
+        "format": "http://publications.europa.eu/resource/authority/file-type/TSV",
+        "media_type": "https://www.iana.org/assignments/media-types/text/tab-separated-values"
+    },
+    "TXT": {
+        "name": "TXT",
+        "format": "http://publications.europa.eu/resource/authority/file-type/TXT",
+        "media_type": null
+    },
+    "WMS": {
+        "name": "WMS",
+        "format": "http://publications.europa.eu/resource/authority/file-type/WMS_SRVC",
+        "media_type": null
+    },
+    "WFS": {
+        "name": "WFS",
+        "format": "http://publications.europa.eu/resource/authority/file-type/WFS_SRVC",
+        "media_type": null
+    },
+    "WMTS": {
+        "name": "WMTS",
+        "format": "http://publications.europa.eu/resource/authority/file-type/WMTS_SRVC",
+        "media_type": null
+    },
+    "XLS": {
+        "name": "XLS",
+        "format": "http://publications.europa.eu/resource/authority/file-type/XLS",
+        "media_type": "https://www.iana.org/assignments/media-types/application/vnd.ms-excel"
+    },
+    "XLSX": {
+        "name": "XLSX",
+        "format": "http://publications.europa.eu/resource/authority/file-type/XLSX",
+        "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    "XML": {
+        "name": "XML",
+        "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+        "media_type": "https://www.iana.org/assignments/media-types/application/xml"
+    },
+    "ZIP": {
+        "name": "ZIP",
+        "format": "http://publications.europa.eu/resource/authority/file-type/ZIP",
+        "media_type": "https://www.iana.org/assignments/media-types/application/zip"
+    }
+}

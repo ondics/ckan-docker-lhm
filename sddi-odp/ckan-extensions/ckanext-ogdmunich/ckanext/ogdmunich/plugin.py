@@ -20,6 +20,19 @@ log = logging.getLogger(__name__)
 
 # Helper functions
 
+def get_dcat_format(ckan_format):
+    '''Return CKAN resource field format for DCAT'''
+    dir_path = os.path.join(os.path.dirname(__file__), "resources")
+    mapping_file = os.path.join(dir_path, "dcat_format_mapping.json")
+    dcat_format = None
+
+    if os.path.isfile(mapping_file):
+        with open(mapping_file, encoding="utf-8") as json_data:
+            format_mapping = json.load(json_data)
+        if format_mapping.get(str(ckan_format).upper()):
+            dcat_format = format_mapping[str(ckan_format).upper()]['format']
+    return dcat_format
+
 def package_tracking(package_id):
     mypackage = toolkit.get_action('package_show')(data_dict={'id': package_id, 'include_tracking': True})
     return mypackage['tracking_summary']['total']
@@ -242,4 +255,5 @@ class OGDMunichThemePlugin(plugins.SingletonPlugin):
         # other extensions.
         return {'ogdmunich_most_popular_groups': most_popular_groups,  'ogdmunich_package_tracking':package_tracking,
                 'ogdmunich_hvd_category_list': hvd_category_list,
-                'ogdmunich_frequency_list': frequency_list}
+                'ogdmunich_frequency_list': frequency_list,
+                'ogdmunich_get_dcat_format': get_dcat_format}

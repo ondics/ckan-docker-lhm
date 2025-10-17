@@ -443,7 +443,7 @@ RUN set -ex && \
   ckan config-tool "${CKAN_INI}" "ckanext.pages.about_menu = false" && \
   ckan config-tool "${CKAN_INI}" "ckanext.pages.allow_html = true" && \
   ckan config-tool "${CKAN_INI}" "ckanext.pages.editor = ckeditor" && \
-  ckan config-tool "${CKAN_INI}" "ckanext.dcat.rdf.profiles = dcatap_de" && \
+  ckan config-tool "${CKAN_INI}" "ckanext.dcat.rdf.profiles = ogdmunich_dcat" && \
   ckan config-tool "${CKAN_INI}" "ckan.harvest.mq.type = redis" && \
   ckan config-tool "${CKAN_INI}" "ckan.harvest.mq.hostname = 127.0.0.1" && \
   ckan config-tool "${CKAN_INI}" "ckan.harvest.mq.port=6379" && \
