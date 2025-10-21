@@ -7,7 +7,7 @@ CKAN-Version 2.9.9
 
 ## Installation 
  
-    $ docker pull ghcr.io/ondics/ckan-sddi-odp:odp-katalog-1.1.0
+    $ docker pull ghcr.io/ondics/ckan-sddi-odp:odp-katalog-1.2.0
 
 ## CKAN Extensions
 
@@ -38,14 +38,14 @@ Die folgenden weiteren Extensions gehen über sddi-base hinaus und werden über 
 
 | Extension | Version | Beschreibung |
 |---|---|---|
-|`ogdmunich` | `1.4.0` | Theme für das ODP München |
+|`ogdmunich` | `1.5.0` | Theme für das ODP München |
 | [`pages`](https://github.com/ckan/ckanext-pages) | `v0.5.2` | Erstellen von zusätzlichen Seiten |
 | [`showcase`](https://github.com/ckan/ckanext-showcase) |  `v1.6.1` | Präsentation von Apps und Webanwendungen und Verknüpfung mit Datensätzen |
 | [`harvest`](https://github.com/ckan/ckanext-harvest) | `v1.5.6` | Harvesting von Daten ins Open Data Portal |
-| [`dcat`](https://github.com/ckan/ckanext-dcat) | `v1.6.0` | Abbildung CKAN Metadaten auf DCAT Konformität und umgekehrt |
-| [`dcatde`](https://github.com/GovDataOfficial/ckanext-dcatde) | `6.7.0` | Abbildung CKAN Metadaten auf DCAT-AP Konformität und umgekehrt |
+| [`dcat`](https://github.com/ckan/ckanext-dcat) | `v2.3.0` | Abbildung CKAN Metadaten auf DCAT Konformität und umgekehrt |
+| [`dcatde`](https://github.com/GovDataOfficial/ckanext-dcatde) | `6.9.0` | Abbildung CKAN Metadaten auf DCAT-AP Konformität und umgekehrt |
 | [`spatial`](https://github.com/MarijaKnezevic/ckanext-spatial) | `c2118b9` | Ermöglicht Datensatzsuche anhand von Geodaten |
 
 ## Autor
 
-(C) Copyright 2024, Ondics GmbH im Auftrag von LHM München
+(C) Copyright 2025, Ondics GmbH im Auftrag von LHM München

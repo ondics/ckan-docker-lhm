@@ -213,7 +213,7 @@ RUN set -ex && \
 
 RUN set -ex && \
   pip wheel --wheel-dir=/wheels \
-  git+https://github.com/open-data/ckanext-openapiview.git#egg=ckanext-openapiview
+  git+https://github.com/open-data/ckanext-openapiview.git@9131c3f#egg=ckanext-openapiview
 
 # ckanext-spatial #############################################################
 FROM ghcr.io/keitaroinc/ckan:${CKAN_VERSION_BUILD_SPATIAL} as extbuild-spatial
@@ -399,7 +399,7 @@ RUN set -ex && \
 
 # ckanext-openapiview #############################################################
 RUN set -ex && \
-  pip install -e git+https://github.com/open-data/ckanext-openapiview.git#egg=ckanext-openapiview
+  pip install -e git+https://github.com/open-data/ckanext-openapiview.git@9131c3f#egg=ckanext-openapiview
 
 # Copy additional files
 COPY --chown=ckan:ckan who.ini ${APP_DIR}/who.ini

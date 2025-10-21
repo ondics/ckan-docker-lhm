@@ -1,6 +1,14 @@
 CHANGELOG
 =========
 
+21.10.2025 (v1.2.0):
+
+* ENH: In Dockerfile ckanext-openapiview auf commit 9131c3f gesetzt zur Kompatibilität mit ckan 2.9.9
+
+20.10.2025:
+
+* ENH: Datensatzschema um Felder politicalGeocodingLevelURI und politicalGeocodingURI erweitert
+
 17.10.2025:
 
 * ENH: in Zusätzliche Informationen bei Ressourcen neuer Tabelleneintrag "Format (DCAT)" und Tabellenzeile Format

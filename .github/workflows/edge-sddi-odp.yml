@@ -39,16 +39,16 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ${{ env.REGISTRY }}/it-at-m/ckan-${{ matrix.context }}
+            ${{ env.REGISTRY }}/ondics/ckan-${{ matrix.context }}
           tags: |
             type=edge,branch=sddi-odp-2.9.9,suffix=-2.9.9
-            type=raw,value=odp-katalog-1.1.0
+            type=raw,value=odp-katalog-1.2.0
           labels: |
-            maintainer=it@m, Landeshauptstadt Muenchen (LHM)
-            org.opencontainers.image.vendor=it@m, Landeshauptstadt Muenchen (LHM)
+            maintainer=Ondics GmbH, Esslingen am Neckar
+            org.opencontainers.image.vendor=Ondics GmbH, Esslingen am Neckar
             org.opencontainers.image.title=ckan-sddi-docker
 
-      - name: Build and publish ${{ env.REGISTRY }}/it-at-m/ckan-${{ matrix.context }}
+      - name: Build and publish ${{ env.REGISTRY }}/ondics/ckan-${{ matrix.context }}
         uses: docker/build-push-action@v4
         with:
           context: ${{ matrix.context }}
@@ -63,16 +63,16 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ${{ env.REGISTRY }}/it-at-m/ckan-${{ matrix.context }}
+            ${{ env.REGISTRY }}/ondics/ckan-${{ matrix.context }}
           tags: |
             type=edge,branch=sddi-odp-2.9.9,suffix=-2.9.9-debug
-            type=raw,value=odp-katalog-1.1.0-debug
+            type=raw,value=odp-katalog-1.2.0-debug
           labels: |
-            maintainer=it@m, Landeshauptstadt Muenchen (LHM)
-            org.opencontainers.image.vendor=it@m, Landeshauptstadt Muenchen (LHM)
+            maintainer=Ondics GmbH, Esslingen am Neckar
+            org.opencontainers.image.vendor=Ondics GmbH, Esslingen am Neckar
             org.opencontainers.image.title=ckan-sddi-docker
 
-      - name: Build and publish ${{ env.REGISTRY }}/it-at-m/ckan-${{ matrix.context }}
+      - name: Build and publish ${{ env.REGISTRY }}/ondics/ckan-${{ matrix.context }}
         uses: docker/build-push-action@v4
         with:
           context: ${{ matrix.context }}
