@@ -4,16 +4,20 @@ import logging
 
 import ckan.plugins.toolkit as toolkit
 
-from rdflib.namespace import Namespace
+from rdflib.namespace import Namespace, RDF
 from ckanext.dcat.profiles import RDFProfile, CleanedURIRef
 from ckanext.dcatde.profiles import DCATdeProfile
 from ckanext.dcat.utils import resource_uri
 from rdflib import Literal, URIRef
 
+import pycountry
+
 # Namespaces von dcat und dcatde Extension kopiert
 DCAT = Namespace("http://www.w3.org/ns/dcat#")
 DCT = Namespace('http://purl.org/dc/terms/')
 DCATDE = Namespace("http://dcat-ap.de/def/dcatde/")
+FOAF = Namespace("http://xmlns.com/foaf/0.1/")
+DCAT_LANGUAGE_PREFIX = "http://publications.europa.eu/resource/authority/language/"
 
 
 class OGDMunichDCATProfile(DCATdeProfile):
@@ -45,7 +49,6 @@ class OGDMunichDCATProfile(DCATdeProfile):
 
         g = self.g
         log = logging.getLogger(__name__)
-        log.debug("####################################################### testtesthallo")
         
         # format Code  von https://github.com/rostock/ckanext-hro_dcatapde/blob/master/ckanext/hro_dcatapde/profile.py
         for resource_dict in dataset_dict.get('resources', []):
@@ -63,9 +66,30 @@ class OGDMunichDCATProfile(DCATdeProfile):
                                 g.add((distribution, DCAT['mediaType'], URIRef(dcatmediatype)))
 
     def graph_from_catalog(self, catalog_dict, catalog_ref):
-        """ Creates a Catalog representation, will not be used for now """
+        """ Creates a Catalog representation """
+
+        log = logging.getLogger(__name__)
+        g = self.g
 
         # call super method
         super(OGDMunichDCATProfile, self).graph_from_catalog(
             catalog_dict, catalog_ref
         )
+
+        # Katalog Sprache (dct:language)
+        locale = toolkit.config.get("ckan.locale_default", "de")
+        try:
+            if locale and not locale.startswith(DCAT_LANGUAGE_PREFIX):
+                language = pycountry.languages.get(alpha_2=locale)
+                language_uri = DCAT_LANGUAGE_PREFIX + language.alpha_3.upper()
+                g.remove((catalog_ref, DCT.language, None))
+                g.add((catalog_ref, DCT.language, URIRef(language_uri)))
+        except (KeyError, AttributeError):
+            log.error('INVALID: ' + 'Catalog Language' + ': ' + language_uri)
+        
+        # Katalog Herausgeber (dct:publisher)
+        publisher_uri = toolkit.config.get("ckanext.ogdmunich_publisher_uri", "https://opendata.muenchen.de/pages/portal")
+        publisher_name = toolkit.config.get("ckanext.ogdmunich_publisher_name", "Landeshauptstadt München")
+        g.add((catalog_ref, DCT.publisher, URIRef(publisher_uri)))
+        g.add((URIRef(publisher_uri), RDF.type, FOAF.Organization))
+        g.add((URIRef(publisher_uri), FOAF.name, Literal(publisher_name)))

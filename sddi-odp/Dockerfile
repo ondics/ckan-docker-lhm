@@ -395,7 +395,8 @@ RUN set -ex && \
 COPY ckan-extensions/ ${APP_DIR}/src
 RUN set -ex && \
   cd ${APP_DIR}/src/ckanext-ogdmunich && \
-  pip install -e .
+  pip install -e . && \
+  pip install -r requirements.txt
 
 # ckanext-openapiview #############################################################
 RUN set -ex && \
@@ -444,6 +445,8 @@ RUN set -ex && \
   ckan config-tool "${CKAN_INI}" "ckanext.pages.allow_html = true" && \
   ckan config-tool "${CKAN_INI}" "ckanext.pages.editor = ckeditor" && \
   ckan config-tool "${CKAN_INI}" "ckanext.dcat.rdf.profiles = ogdmunich_dcat" && \
+  ckan config-tool "${CKAN_INI}" "ckanext.ogdmunich_publisher_uri = https://opendata.muenchen.de/pages/portal" && \
+  ckan config-tool "${CKAN_INI}" "ckanext.ogdmunich_publisher_name = Landeshauptstadt München" && \
   ckan config-tool "${CKAN_INI}" "ckan.harvest.mq.type = redis" && \
   ckan config-tool "${CKAN_INI}" "ckan.harvest.mq.hostname = 127.0.0.1" && \
   ckan config-tool "${CKAN_INI}" "ckan.harvest.mq.port=6379" && \

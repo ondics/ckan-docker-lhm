@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+28.11.2025 (v1.2.1):
+
+* ENH: DCAT Profil Anpassungen für dcat:Catalog um language und publisher
+
 21.10.2025 (v1.2.0):
 
 * ENH: In Dockerfile ckanext-openapiview auf commit 9131c3f gesetzt zur Kompatibilität mit ckan 2.9.9

@@ -42,7 +42,7 @@ jobs:
             ${{ env.REGISTRY }}/ondics/ckan-${{ matrix.context }}
           tags: |
             type=edge,branch=sddi-odp-2.9.9,suffix=-2.9.9
-            type=raw,value=odp-katalog-1.2.0
+            type=raw,value=odp-katalog-1.2.1
           labels: |
             maintainer=Ondics GmbH, Esslingen am Neckar
             org.opencontainers.image.vendor=Ondics GmbH, Esslingen am Neckar
@@ -66,7 +66,7 @@ jobs:
             ${{ env.REGISTRY }}/ondics/ckan-${{ matrix.context }}
           tags: |
             type=edge,branch=sddi-odp-2.9.9,suffix=-2.9.9-debug
-            type=raw,value=odp-katalog-1.2.0-debug
+            type=raw,value=odp-katalog-1.2.1-debug
           labels: |
             maintainer=Ondics GmbH, Esslingen am Neckar
             org.opencontainers.image.vendor=Ondics GmbH, Esslingen am Neckar

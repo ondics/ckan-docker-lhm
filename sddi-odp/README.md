@@ -7,7 +7,7 @@ CKAN-Version 2.9.9
 
 ## Installation 
  
-    $ docker pull ghcr.io/ondics/ckan-sddi-odp:odp-katalog-1.2.0
+    $ docker pull ghcr.io/ondics/ckan-sddi-odp:odp-katalog-1.2.1
 
 ## CKAN Extensions
 
